@@ -34,6 +34,10 @@ function! flog#cmd#flog#args#Parse(current_opts, workdir, args) abort
     elseif l:arg ==# '-raw-args='
       let l:has_set_raw_args = v:false
       let a:current_opts.raw_args = l:defaults.raw_args
+    elseif l:arg ==# '-stash'
+      let a:current_opts.stash = v:true
+    elseif l:arg ==# '-no-stash'
+      let a:current_opts.stash = v:false
     elseif l:arg ==# '-all'
       let a:current_opts.all = v:true
     elseif l:arg ==# '-no-all'
@@ -297,6 +301,8 @@ function! flog#cmd#flog#args#Complete(arg_lead, cmd_line, cursor_pos) abort
   let l:default_completion = [
         \ '-all ',
         \ '--no-all ',
+        \ '-stash ',
+        \ '--no-stash ',
         \ '-author=',
         \ '-auto-update ',
         \ '-no-auto-update ',

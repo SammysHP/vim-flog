@@ -39,6 +39,7 @@ function! flog#state#GetInternalDefaultOpts() abort
         \ 'raw_args': '',
         \ 'format': l:format,
         \ 'date': 'iso',
+        \ 'stash': v:true,
         \ 'all': v:false,
         \ 'auto_update': v:false,
         \ 'bisect': v:false,
