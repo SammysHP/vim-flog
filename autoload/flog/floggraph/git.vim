@@ -73,6 +73,9 @@ function! flog#floggraph#git#BuildLogArgs() abort
   let l:args .= ' --no-color'
   let l:args .= ' --pretty=' . flog#floggraph#git#BuildLogFormat()
   let l:args .= ' --date=' . flog#shell#Escape(l:opts.date)
+  if !l:opts.stash
+    let l:args .= ' --exclude=refs/stash'
+  endif
   if l:opts.all && empty(l:opts.limit)
     let l:args .= ' --all'
   endif
